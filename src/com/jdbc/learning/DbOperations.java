@@ -2,7 +2,7 @@ package com.jdbc.learning;
 
 import java.sql.*;
 
-public class Launch {
+public class DbOperations {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         try {
             //load and register driver, during this class loading the static block of this class gets executed automatically
@@ -18,15 +18,34 @@ public class Launch {
             // create statement
             Statement statement = connection.createStatement();
 
-            //execute query insert
-            String sql = "INSERT INTO studentinfo(id, sname, sage, scity) VALUES(2, 'SK', 23, 'KOTA')";
+            //execute query update
+//            String sql = "UPDATE studentinfo set sname = 'Shubhiksha' where id = 2";
+//            int rowAffected = statement.executeUpdate(sql);
+
+            //execute query read
+//            String sql = "SELECT * FROM studentinfo";
+//            ResultSet resultSet = statement.executeQuery(sql);
+
+            //execute query delete
+            String sql = "DELETE FROM studentinfo where id = 1";
             int rowAffected = statement.executeUpdate(sql);
 
+
             //process the result
+//            if(rowAffected == 0){
+//                System.out.println("Unable to update data");
+//            }else{
+//                System.out.println("Data updated successfully");
+//            }
+
+//            while (resultSet.next()){
+//                System.out.println(resultSet.getInt(1) + " " + resultSet.getString(2));
+//            }
+
             if(rowAffected == 0){
-                System.out.println("Unable to insert data");
+                System.out.println("Unable to delete data");
             }else{
-                System.out.println("Data inserted successfully");
+                System.out.println("Data deleted successfully");
             }
 
             //close the resources/connection
