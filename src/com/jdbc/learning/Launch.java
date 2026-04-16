@@ -37,7 +37,10 @@ public class Launch {
             System.out.println("Class not found to load!" + e.getMessage());
             e.printStackTrace();
         } catch (SQLException e) {
-            System.out.println("Connection failed!" + e.getMessage());
+            System.out.println("SQL exception!" + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Exception occurs!" + e.getMessage());
             e.printStackTrace();
         } finally {
             System.out.println("finally block");
